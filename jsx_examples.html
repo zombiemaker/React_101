@@ -10,11 +10,15 @@
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="main.js"></script>
 </head>
 <body>
     <div id="root"></div>
     <script type="text/babel">
+    const name = "Jim Owens"
+    const title = "React from the Beginning"
+    const saleOn = true;
     const markup = <div className="row">
     <div className="col s2">
         <div className="card hoverable small">
@@ -22,11 +26,11 @@
                 <img src="http://lorempixel.com/400/400/nature/" />
             </div>
             <div className="card-content">
-                <p>React From the Beginning</p>
-                <p>Robert Bunch</p>
+                <p>{title}</p>
+                <p>{name}</p>
             </div>
             <div className="card-action">
-                <a href="#">$9.99</a>
+                <a href="#">${saleOn ? 9.99 : 59.99}</a>
             </div>
         </div>
     </div>    

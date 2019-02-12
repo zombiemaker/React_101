@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>React</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/babel" src="card.js"></script>
+    <script type="text/babel">
+    // console.log('this is working')
+    // console.log(data[0].course)
+    ReactDOM.render(
+        <div className = "row">
+            <Card data={data[0]} />
+            <Card data={data[1]} />
+            <Card data={data[2]} />
+            <Card data={data[3]} />
+        </div>, 
+        document.getElementById('root')
+    );
+    </script>
+    {/* <script type="text/babel">
+        console.log('this is working')
+        // console.log(data[0].course)
+        ReactDOM.render(
+            <div className = "row">
+                <Cards data = {data} />
+            </div>, 
+            document.getElementById('root')
+        );
+        </script> */}
+</body>
+</html>
