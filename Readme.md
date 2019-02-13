@@ -1,5 +1,6 @@
 Intro to React, introduction to the history of ECMAScript and how it developed:
 JavaScript Wars
+***
     1. Pre-ES5
         -1995 (Mocha --> JavaScript)
         -1997 (ES)
@@ -20,3 +21,5 @@ JavaScript Wars
     9.Angular 2-7 is the other big dog.
     10.Ember, Vue, etc. probably won't make empire status, but a strong, modern city state (like Monaco and Singapore)
     11.React licensing and Apache - Apache blacklisted Facebook and facebook knelt
+    
+    ***
