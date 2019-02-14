@@ -64,6 +64,6 @@ class App extends React.Component{
 }
 
 ReactDOM.render(
-    <App/>, 
+    <App title="Another Movie App"/>, 
     document.getElementById('root')
 );

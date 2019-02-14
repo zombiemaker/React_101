@@ -1,13 +1,13 @@
 var data = [
   {
     author:{
-      avatarUrl: "http://iconpopanswers.com/wp-content/uploads/2013/04/icomania-large-167.jpg",
+      avatarUrl: `http://iconpopanswers.com/wp-content/uploads/2013/04/icomania-large-167.jpg`,
       name:"neo"
     },
     commentHeading: "I am the One.",
     text: "Humanity, relax. I will save you.",
     date: "Today",
-    userBadge: [ 
+    userBadge: [
       'Superman',
       'Herald',
       'Engineer'
@@ -15,22 +15,22 @@ var data = [
   },
   {
     author:{
-      avatarUrl: "https://maxcdn.icons8.com/Color/PNG/512/Cinema/morpheus-512.png",
+      avatarUrl: `https://maxcdn.icons8.com/Color/PNG/512/Cinema/morpheus-512.png`,
       name:"Morpheus"
     },
     commentHeading: "There is no spoon.",
     text: "Don't htink you are. KNow you are.",
     date: "Two days ago",
-    userBadge: [ 
+    userBadge: [
       'The man',
       'Bard',
       'Samurai swordsman'
     ]
   }
-]
-
-function Avatar(props){
-    // console.log (props)
+ ]
+ 
+ function Avatar(props){
+    console.log ('avatarprops: ', props)
     return(
         <div className="UserInfo">
             <img className="Avatar" src={props.data.author.avatarUrl} alt={props.data.author.name}/>
@@ -38,9 +38,9 @@ function Avatar(props){
         </div>
         // <h1>Sanity Check</h1>
     )
-}
-
-function CommentBody(props){
+ }
+ 
+ function CommentBody(props){
     console.log("got into body")
     console.log (props)
     return(
@@ -51,9 +51,9 @@ function CommentBody(props){
         </div>
         // <h1>Sanity Check</h1>
     )
-}
-
-function UserBadges(props){
+ }
+ 
+ function UserBadges(props){
     console.log("made it into badges")
     console.log(props)
     return(
@@ -64,9 +64,9 @@ function UserBadges(props){
         </div>
         // <h1>Sanity Check</h1>
     )
-}
-
-class Comment extends React.Component {
+ }
+ 
+ class Comment extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -74,7 +74,10 @@ class Comment extends React.Component {
         }
     }
     render(){
+   console.log('###>>>: ', this.props.data);
+
         return (
+          
             <div className="Comment">
                 <Avatar data={this.props.data}/>
                 <CommentBody data={this.props.data}/>
@@ -82,12 +85,15 @@ class Comment extends React.Component {
             </div>
         )
     }
-}
-let comments = data.map((obj)=>{
+ }
+ 
+ let comments = data.map((obj)=>{   
+   console.log('OBJ: ', obj);
+   
     return <Comment data={obj}/>
-})
-
-ReactDOM.render(
-    <div className="row">{comments}</div>,
-    document.getElementById('root')
-    );
+ })
+ 
+ ReactDOM.render(
+ <div className="row">{comments}</div>,
+ document.getElementById('root')
+ );
