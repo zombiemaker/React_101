@@ -76,14 +76,22 @@ function UserBadges(props){
     )
 }
 
-function Comment(props) {
- return (
-    <div className="Comment">
-        <Avatar data={data}/>
-        <CommentBody data={data}/>
-        <UserBadges data={data}/>
-    </div>
- )
+class Comment extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            dataToShow:[]
+        }
+    }
+    render(){
+        return (
+            <div className="Comment">
+                <Avatar data={data}/>
+                <CommentBody data={data}/>
+                <UserBadges data={data}/>
+            </div>
+        )
+    }
 }
 
 let comments = data.map((obj)=>{
