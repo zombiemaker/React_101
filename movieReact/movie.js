@@ -34,8 +34,8 @@ class App extends React.Component{
             this.setState({
             moviesToShow:results
         })
-          });
-        console.log('checking...yes! it is mounted.')
+        });
+    console.log('checking...yes! it is mounted.')
         
     }
     // render is special, React uses it and we don't
