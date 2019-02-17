@@ -1,23 +1,27 @@
-import React from 'react'
+// The very first thing in every component, 
+// is to import
+import React, {Component} from 'react';
 
-
-// not everything has to be a class; if there isn't a render or any complexity, we 
-// can keep it simple and make it just a function.
-function Poster(props){
-    // this is where we are returning JSX, which is transitioned to Javascript and back to HTML
-    const imagePath = `http://image.tmdb.org/t/p/w300/${props.movie.poster_path}`      
-    const moviePath = `http://www.themoviedb.org/movie/${props.movie.id}`
-    const title = props.movie.title
-    return(
-        <div className="col s3 center">
-            <a href={moviePath} target="blank">
-                <img src={imagePath} />
-            </a>
-            <div className="col s12">
-                {title}
+// I am a presentational Component.
+// That means I don't care about state.
+// I could have been in App.js, but this is cleaner
+class Poster extends Component{
+    // no constructor neccessary, because "this" is never used
+    render(){
+        const imagePath = `http://image.tmdb.org/t/p/w300${this.props.movie.poster_path}`;		
+        const moviePath = `http://www.themoviedb.org/movie/${this.props.movie.id}`    
+        const title = this.props.movie.title;
+        return(
+            <div className="col s3 center">
+                <a href={moviePath}>
+                    <img src={imagePath} />
+                </a>
+                <div className="col s12">
+                    {title}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default Poster
+export default Poster;
