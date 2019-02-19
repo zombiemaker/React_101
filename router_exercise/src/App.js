@@ -9,8 +9,9 @@ import {
 import Home from './Home';
 import About from './About';
 import MayorMessage from "./MayorMessage";
-import Atlanta from "./Atlanta";
+import Weather from "./Weather";
 import Images from "./Images";
+import TemperatureApp from './TemperatureApp';
 
 var atlImages = [
   'http://i.huffpost.com/gen/1716876/images/o-ATLANTA-TRAFFIC-facebook.jpg',
@@ -26,8 +27,9 @@ class App extends Component {
           <Route path="/" component ={BootstrapNavBar} />
           <Route path="/Home" component ={Home} />
           <Route path="/About" component ={About} />
-          <Route exact path="/Atlanta" component ={Atlanta} />
+          <Route exact path="/Weather" component ={Weather} />
           <Route path="/MayorMessage" component ={MayorMessage} />
+          <Route path="/TemperatureApp" component ={TemperatureApp} />
           <Route path="/Images" render={(props)=><Images imageGallery={atlImages} />} />
           <div className="container main">
             <h1>Main App</h1>
