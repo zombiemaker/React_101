@@ -1,69 +1,59 @@
+
+
 import React, {Component} from 'react';
 import TemperatureInput from './TemperatureInput';
-import BoilingVerdict from './BoilingVerdict'
+import BoilingVerdict from './BoilingVerdict';
 
 class TemperatureApp extends Component{
     constructor(){
         super();
-        this.state={
+        this.state = {
             temperature: 17,
-            scale: 'c',
+            scale: 'c'
         }
-        this.handleCelsiusChange=this.handleCelsiusChange.bind(this)
-        this.handleFahrenheitChange=this.handleFahrenheitChange.bind(this)
+        this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this)
+        this.handleCelsiusChange = this.handleCelsiusChange.bind(this)
     }
-    handleCelsiusChange(value){
-        console.log(`someone changed the input box to ${value}`)
-        this.setState({
-            temperature: value.target.value,
-            scale: "c",
-            msg: "",
-        })
+
+    handleCelsiusChange(value){        
+        if(value.target.value.match(/^\d*$/)){      
+            this.setState({
+                temperature: value.target.value,
+                scale: "c"
+            })
+        }
     }
 
     handleFahrenheitChange(value){
-        console.log(`someone changed the input box to ${value}`)
-        const reg = new RegExp(/^\d+$/);
-        if (value.target.value.match(reg)) {
-            // console.log('only numbers!')
+        if(value.target.value.match(/^\d*$/)){
             this.setState({
                 temperature: value.target.value,
+                scale: "f"
             })
-        } else{
-            console.log ('fail!');
-            this.setState({
-                msg: " <--please enter only numbers"
-            })
-        }
-        this.setState({
-            temperature: value.target.value,
-            scale: "f",
-        })
+        }        
     }
+
     render(){
-        const scale = this.state.scale
+        const scale = this.state.scale;
         const temp = this.state.temperature;
-        
-        let fTemp;
-        let cTemp;
-        if (scale==='c'){
-            fTemp = ((temp*(9/5))+32);
+        let fTemp = '';
+        let cTemp = '';
+        if(scale === 'c'){
+            fTemp = Math.round((temp * 9 / 5) + 32);
             cTemp = temp;
-        } else if (scale === 'f'){
-            fTemp = temp
-            cTemp = ((temp-32)*5/9)
+        }else if(scale === 'f'){
+            fTemp = temp;
+            cTemp = Math.round((temp - 32) * 5 / 9);
         }
+
         return(
             <div id="temp-app">
-                <h1>Temperature in degrees Fahrenheit:</h1>
-                <TemperatureInput scale ="f" temperature={fTemp} onChange={this.handleFahrenheitChange} />
-                <h1>Temperature in degrees Celsius:</h1>
-                {this.state.msg}
-                <TemperatureInput scale ="c" temperature={cTemp} onChange={this.handleCelsiusChange} />
-                <BoilingVerdict temperature = {cTemp}/>
-                {this.state.msg}
+                <TemperatureInput scale="f" temperature={fTemp} onChange={this.handleFahrenheitChange}/>
+                <TemperatureInput scale="c" temperature={cTemp} onChange={this.handleCelsiusChange}/>
+                <BoilingVerdict temperature={cTemp}/>
             </div>
         )
     }
 }
-export default TemperatureApp
+
+export default TemperatureApp;
