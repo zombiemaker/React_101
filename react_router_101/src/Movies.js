@@ -10,7 +10,10 @@ class Movies extends Component{
 		}
 	}
 
-	componentWillReceiveProps(newProps){
+	componentWillReceiveProps(newProps){ 
+		// this one was done so that the movies tag in the render in App
+		// will re-render. Otherwise, the only change would be in match and this would not set a new state.
+		// this is only useful if the movieList does not have the "exact" tag in the JSX
 		console.log(newProps);
 		const mid = newProps.match.params.movieId;
 		axios.get(`https://api.themoviedb.org/3/movie/${mid}?api_key=fec8b5ab27b292a68294261bb21b04a5`)
